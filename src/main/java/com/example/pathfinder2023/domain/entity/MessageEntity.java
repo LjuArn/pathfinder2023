@@ -22,8 +22,44 @@ public class MessageEntity extends BaseEntity{
    @JoinColumn(name = "recipient_id")
    private UserEntity recipient;
 
+    public MessageEntity() {
+    }
 
+    public LocalDateTime getDateTime() {
+        return dateTime;
+    }
 
+    public MessageEntity setDateTime(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
+        return this;
+    }
+
+    public String getTextContent() {
+        return textContent;
+    }
+
+    public MessageEntity setTextContent(String textContent) {
+        this.textContent = textContent;
+        return this;
+    }
+
+    public UserEntity getAuthor() {
+        return author;
+    }
+
+    public MessageEntity setAuthor(UserEntity author) {
+        this.author = author;
+        return this;
+    }
+
+    public UserEntity getRecipient() {
+        return recipient;
+    }
+
+    public MessageEntity setRecipient(UserEntity recipient) {
+        this.recipient = recipient;
+        return this;
+    }
 }
 //•	date time - Accepts Date and Time values
 //•	text content - Accepts very long String values
