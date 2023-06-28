@@ -1,8 +1,8 @@
+<!DOCTYPE html>
 <html lang="en"
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
-
-<head>
+<head th:fragment="head">
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Pathfinder</title>
@@ -18,58 +18,45 @@
             integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
             crossorigin=""></script>
 </head>
+
 <body>
-<div class="wrapper">
-    <!-- Navigation -->
-    <header>
+<header th:fragment="navigation">
     <nav class="main-nav">
         <ul>
-                <li>
-                    <a href="/">Home</a>
-                </li>
-                <li>
-                    <a href="/">Login</a>
-                </li>
-                <li>
-                    <a href="/">Register</a>
-                </li>
-                <li>
-                    <a href="/">About</a>
-                </li>
-				<li>
-                    <a href="/">Add new route</a>
-                </li>
-                <li>
-                    <a href="/">Profile</a>
-                </li>
-                <li>
-                    <a href="/">Admin</a>
-                </li>
-                <li>
-                    <a href="/">Logout</a>
-                </li>
+            <li>
+                <a href="/">Home</a>
+            </li>
+            <li>
+                <a href="/">Login</a>
+            </li>
+            <li>
+                <a href="/">Register</a>
+            </li>
+            <li>
+                <a href="/">About</a>
+            </li>
+            <li>
+                <a href="/">Add new route</a>
+            </li>
+            <li>
+                <a href="/">Profile</a>
+            </li>
+            <li>
+                <a href="/">Admin</a>
+            </li>
+            <li>
+                <a href="/">Logout</a>
+            </li>
         </ul>
     </nav>
 </header>
-
-    <section class="road">
-        <img src="/images/pic4.jpg" alt="Title image">
-        <div>
-            <h2>Your Route</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae alias reiciendis deleniti possimus nemo
-                non repellendus?
-                Quae atque vero modi quidem! Autem cupiditate fugit doloribus ad amet, asperiores provident commodi.</p>
-            <a href="/" class="btn">Learn More</a>
-        </div>
-    </section>
-</div>
-<!-- Wrapper Ends -->
-</body>
-<footer class="footer bg-blur rounded">
+<footer th:fragment="footer"
+        class="footer bg-blur rounded">
     <div class="container-fluid text-center">
         <div class="h5 text-white">
             &copy; Lucho, Chocho & Spring Advanced Students 2021. All rights reserved.
         </div>
     </div>
 </footer>
+</body>
 </html>

@@ -18,21 +18,21 @@ public class RouteEntity extends  BaseEntity{
     @Column(name = "gpx_coordinates", columnDefinition = "LONGTEXT")
     private String gpxCoordinates;
 
-    @Enumerated(EnumType.STRING)
     @Column(name = "level")
-    private LevelRoutsEnum levelRoutsEnum;
+    @Enumerated(EnumType.STRING)
+    private LevelRoutsEnum level;
 
     @Column(name = "name", nullable = false, unique = true)
     private String name;
 
-    @Column
+    @Column(name = "video_url")
     private String videoUrl;
 
     @ManyToOne
     @JoinColumn(name = "author_id")
     private UserEntity author;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private Set<CategoriesEntity> categories;
 
     public RouteEntity() {
@@ -56,12 +56,12 @@ public class RouteEntity extends  BaseEntity{
         return this;
     }
 
-    public LevelRoutsEnum getLevelRoutsEnum() {
-        return levelRoutsEnum;
+    public LevelRoutsEnum getLevel() {
+        return level;
     }
 
-    public RouteEntity setLevelRoutsEnum(LevelRoutsEnum levelRoutsEnum) {
-        this.levelRoutsEnum = levelRoutsEnum;
+    public RouteEntity setLevel(LevelRoutsEnum level) {
+        this.level = level;
         return this;
     }
 

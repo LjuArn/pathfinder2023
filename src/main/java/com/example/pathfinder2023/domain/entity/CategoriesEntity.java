@@ -6,8 +6,9 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "categories")
 public class CategoriesEntity extends BaseEntity{
-    @Enumerated(EnumType.STRING)
+
     @Column(name = "name", nullable = false, unique = true)
+    @Enumerated(EnumType.STRING)
     private CategoryNameEnum name;
 
     @Column(name = "description", columnDefinition = "TEXT")
