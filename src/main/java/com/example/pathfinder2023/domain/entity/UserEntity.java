@@ -12,7 +12,7 @@ public class UserEntity extends BaseEntity {
 
     @Column
     private Integer age;
-    @Column(name = "full_name", nullable = false)
+    @Column
     private String fullName;
     @Column
     private String email;
