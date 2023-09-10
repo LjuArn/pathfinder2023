@@ -21,7 +21,8 @@ public class UserEntity extends BaseEntity {
     @Column(nullable = false)
     private String password;
 
-    @ManyToMany
+    //сложих(cascade = CascadeType.ALL, fetch= FetchType.EAGER) и тръгна
+    @ManyToMany(cascade = CascadeType.ALL, fetch= FetchType.EAGER)
     private Set<RoleEntity> roles;
     @Column
     @Enumerated(EnumType.STRING)

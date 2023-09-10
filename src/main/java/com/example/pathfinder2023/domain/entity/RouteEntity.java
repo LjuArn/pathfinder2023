@@ -35,6 +35,9 @@ public class RouteEntity extends  BaseEntity{
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<CategoriesEntity> categories;
 
+    @OneToMany(mappedBy = "route", fetch = FetchType.EAGER)
+    private Set<PicturesEntity> pictures;
+
     public RouteEntity() {
     }
 
@@ -98,6 +101,15 @@ public class RouteEntity extends  BaseEntity{
 
     public RouteEntity setCategories(Set<CategoriesEntity> categories) {
         this.categories = categories;
+        return this;
+    }
+
+    public Set<PicturesEntity> getPictures() {
+        return pictures;
+    }
+
+    public RouteEntity setPictures(Set<PicturesEntity> pictures) {
+        this.pictures = pictures;
         return this;
     }
 }

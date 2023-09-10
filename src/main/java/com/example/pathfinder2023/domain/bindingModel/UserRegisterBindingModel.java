@@ -1,13 +1,12 @@
 package com.example.pathfinder2023.domain.bindingModel;
 
-import jakarta.persistence.Column;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
 
 public class UserRegisterBindingModel {
 
-    @Size(min = 3, message = "Username length must be more than 3 characters")
+    @Size(min = 2, message = "Username length must be more than 2 characters")
     private String username;
     @Size(min = 3, message = "Full name length must be more than 3 characters")
     private String fullName;
