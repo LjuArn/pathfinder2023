@@ -44,10 +44,9 @@ public class RouteController {
     @GetMapping("/add")
     public String addRoute(Model model) {
 
-
-        if(currentUser.getId()==null) {
-        return "redirect:/users/login";
-        }
+   //     if(currentUser.getId()==null) {
+   //     return "redirect:/users/login";
+   //     }
 
         if (!model.containsAttribute("routeAddBindingModel")) {
             model.addAttribute("routeAddBindingModel", new RouteAddBindingModel());
