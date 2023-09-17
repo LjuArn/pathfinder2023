@@ -19,14 +19,15 @@
                         <label for="inputUsername" class="col-form-label ">Username</label>
                     </div>
                     <div class="col-auto">
-                        <input th:field="*{username}"
-                               required minlength="2" maxlength="20"
+                        <input th:field="*{username}" th:errorclass="is-invalid"
                                type="text"
                                id="inputUsername"
                                class="form-control"
-                               aria-describedby="usernameHelpInline">
-                        <small  id="usernameError"
-                               class="invalid-feedback bg-danger rounded">Username length must be more than 2 characters</small>
+                               aria-describedby="usernameHelpInline" placeholder="Username">
+                        <small  id="usernameHelpInline"
+                               class="invalid-feedback bg-danger rounded">
+                            Username length must be more than 2 characters
+                        </small>
 
                         <small th:if="${isNameExist}"  id="usernameUniqueError"
                                class=" bg-danger rounded">Username is already occupied</small>
@@ -39,6 +40,7 @@
                     </div>
                     <div class="col-auto">
                         <input th:field="*{fullName}"
+                               th:errorclass="is-invalid"
                                required minlength="3" maxlength="20"
                                type="text"
                                id="inputFullName"

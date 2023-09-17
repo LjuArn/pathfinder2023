@@ -13,11 +13,11 @@ public class RouteAddBindingModel {
 
 
     @NotEmpty
-    @Size(min = 5, max = 20, message = "Name length must be between 5 and 20 characters")
+    @Size(min = 5, max = 20, message = "Da da da Name length must be between 5 and 20 characters")
     private String name;
     @Size(min = 5, message = "Description length must be more than 5")
     private String description;
-    //@Size(message = "Must be valid GPX Coordinates")
+
     private MultipartFile gpxCoordinates;
     @NotNull
     private LevelRoutsEnum level;

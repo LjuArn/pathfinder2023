@@ -44,7 +44,8 @@ public class UserController {
                                   RedirectAttributes redirectAttributes) {
 
         if (bindingResult.hasErrors() ||
-                !userRegisterBindingModel.getPassword().equals(userRegisterBindingModel.getConfirmPassword())) {
+                !userRegisterBindingModel.getPassword().equals(userRegisterBindingModel.getConfirmPassword()))
+        {
             redirectAttributes
                     .addFlashAttribute("userRegisterBindingModel", userRegisterBindingModel);
             redirectAttributes

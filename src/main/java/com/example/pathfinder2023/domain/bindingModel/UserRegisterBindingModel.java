@@ -6,7 +6,7 @@ import jakarta.validation.constraints.Size;
 
 public class UserRegisterBindingModel {
 
-    @Size(min = 2, message = "Username length must be more than 2 characters")
+    @Size(min = 4, message = "Username length must be more than 2 characters")
     private String username;
     @Size(min = 3, message = "Full name length must be more than 3 characters")
     private String fullName;
