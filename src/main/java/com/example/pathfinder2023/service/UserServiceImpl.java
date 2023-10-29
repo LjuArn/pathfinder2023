@@ -3,9 +3,7 @@ package com.example.pathfinder2023.service;
 import com.example.pathfinder2023.domain.entity.UserEntity;
 import com.example.pathfinder2023.domain.entity.enums.LevelUserEnum;
 import com.example.pathfinder2023.domain.serviceModel.UserServiceModel;
-import com.example.pathfinder2023.domain.viewModel.UserModel;
 import com.example.pathfinder2023.repository.UserRepository;
-import com.example.pathfinder2023.unit.CurrentUser;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
@@ -14,12 +12,11 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
     private final ModelMapper modelMapper;
-    private final CurrentUser currentUser;
 
-    public UserServiceImpl(UserRepository userRepository, ModelMapper modelMapper, CurrentUser currentUser) {
+
+    public UserServiceImpl(UserRepository userRepository, ModelMapper modelMapper) {
         this.userRepository = userRepository;
         this.modelMapper = modelMapper;
-        this.currentUser = currentUser;
     }
 
     @Override
@@ -37,16 +34,6 @@ public class UserServiceImpl implements UserService {
                 .orElse(null);
     }
 
-    @Override
-    public void loginUser(Long id, String username) {
-        currentUser.setId(id).setUsername(username);
-
-    }
-
-    @Override
-    public void logOut() {
-        currentUser.setId(null).setUsername(null);
-    }
 
     @Override
     public UserServiceModel findById(long id) {

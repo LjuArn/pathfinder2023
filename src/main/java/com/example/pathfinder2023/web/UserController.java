@@ -44,8 +44,7 @@ public class UserController {
                                   RedirectAttributes redirectAttributes) {
 
         if (bindingResult.hasErrors() ||
-                !userRegisterBindingModel.getPassword().equals(userRegisterBindingModel.getConfirmPassword()))
-        {
+                !userRegisterBindingModel.getPassword().equals(userRegisterBindingModel.getConfirmPassword())) {
             redirectAttributes
                     .addFlashAttribute("userRegisterBindingModel", userRegisterBindingModel);
             redirectAttributes
@@ -64,7 +63,7 @@ public class UserController {
                     .addFlashAttribute("org.springframework.validation.BindingResult.userRegisterBidingModel",
                             bindingResult);
             return "redirect:register";
-          //todo   with message
+            //todo   with message
         }
 
         userService.registerUser(modelMapper.map(userRegisterBindingModel, UserServiceModel.class));
@@ -112,7 +111,7 @@ public class UserController {
             return "redirect:login";
         }
 
-        userService.loginUser(user.getId(), user.getUsername());
+  //     userService.loginUser(user.getId(), user.getUsername());
 
         return "redirect:/";
 
@@ -122,11 +121,11 @@ public class UserController {
 
     //_______________________________
 
-    @GetMapping("/logout")
-    public String logOut() {
-        userService.logOut();
-        return "redirect:/";
-    }
+    //   @GetMapping("/logout")
+    //   public String logOut() {
+    //      userService.logOut();
+    //       return "redirect:/";
+    //   }
 
 
     //_____________________________
