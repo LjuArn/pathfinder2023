@@ -35,6 +35,7 @@ logging:
     blog: WARN
     org: WARN
     org.hibernate.SQL: DEBUG
+    org.springframework.security: TRACE
 
 #Cloudinary Properties
 #cloudinary:

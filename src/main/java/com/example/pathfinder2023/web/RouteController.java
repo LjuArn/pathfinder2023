@@ -5,7 +5,6 @@ import com.example.pathfinder2023.domain.bindingModel.RouteAddBindingModel;
 import com.example.pathfinder2023.domain.serviceModel.RouteAddServiceModel;
 import com.example.pathfinder2023.domain.viewModel.RouteViewModel;
 import com.example.pathfinder2023.service.RouteService;
-import com.example.pathfinder2023.unit.CurrentUser;
 import jakarta.validation.Valid;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Controller;
@@ -24,14 +23,11 @@ import java.util.List;
 public class RouteController {
 
     private final RouteService routeService;
-    private final CurrentUser currentUser;
     private final ModelMapper modelMapper;
 
     public RouteController(RouteService routeService,
-                           CurrentUser currentUser,
                            ModelMapper modelMapper) {
         this.routeService = routeService;
-        this.currentUser = currentUser;
         this.modelMapper = modelMapper;
     }
 

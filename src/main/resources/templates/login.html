@@ -12,32 +12,34 @@
 
             <form
                     th:action="@{/users/login}"
-                    th:method="post"
-                    th:object="${userLoginBindingModel}">
+                    th:method="post">
 
-                <div th:if="${isNotFound}" class="text-danger">Incorrect username or password!</div>
+                <div  class="text-danger">Incorrect username or password!</div>
                 <div>
                     <div class="col-auto">
-                        <label for="inputUsername" class="col-form-label ">Username</label>
+                        <label for="username" class="col-form-label ">Username</label>
                     </div>
                     <div class="col-auto">
-                        <input th:field="*{username}"
+                        <input
                                type="text"
                                required minlength="2" maxlength="20"
-                               id="inputUsername"
+                               id="username"
                                class="form-control"
+                               name="username"
                                aria-describedby="usernameHelpInline">
                     </div>
                 </div>
                 <div>
                     <div class="col-auto">
-                        <label for="inputPassword" class="col-form-label ">Password</label>
+                        <label for="password" class="col-form-label ">Password</label>
                     </div>
                     <div class="col-auto">
-                        <input th:field="*{password}"
+                        <input
                                type="password"
                                required minlength="5" maxlength="20"
-                               id="inputPassword" class="form-control"
+                               id="password"
+                               class="form-control"
+                               name="password"
                                aria-describedby="passwordHelpInline">
                     </div>
                 </div>
