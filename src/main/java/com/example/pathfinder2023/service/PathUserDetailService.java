@@ -2,9 +2,7 @@ package com.example.pathfinder2023.service;
 
 import com.example.pathfinder2023.domain.entity.RoleEntity;
 import com.example.pathfinder2023.domain.entity.UserEntity;
-import com.example.pathfinder2023.domain.entity.enums.RoleNameEnum;
 import com.example.pathfinder2023.repository.UserRepository;
-import org.modelmapper.ModelMapper;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
