@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en"
       xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec='http://www.thymeleaf.org/extras/spring-security'>
 
 <head th:replace="~{fragments/commons::head}">
 </head>
@@ -24,6 +25,7 @@
                                th:errorclass="is-invalid"
                                type="text"
                                id="inputUsername"
+                               name="username"
                                class="form-control"
                                aria-describedby="usernameHelpInline"
                                placeholder="Username">
@@ -32,8 +34,8 @@
                             Username length must be more than 2 555555555555555555characters
                         </small>
 
-                        <small th:if="${isNameExist}" id="usernameUniqueError"
-                               class=" bg-danger rounded">Username is already occupied</small>
+<!--                        <small th:if="${isNameExist}" id="usernameUniqueError"-->
+<!--                               class=" bg-danger rounded">Username is already occupied</small>-->
                     </div>
                 </div>
 
@@ -47,6 +49,7 @@
                                required minlength="3" maxlength="20"
                                type="text"
                                id="inputFullName"
+                               name="fullName"
                                class="form-control"
                                aria-describedby="fullNameHelpInline">
                         <small id="fullNameHelpInline"
@@ -63,6 +66,7 @@
                         <input th:field="*{email}"
                                required type="email"
                                id="inputEmail"
+                               name="email"
                                class="form-control"
                                aria-describedby="emailHelpInline">
                         <small id="emailHelpInline"
@@ -79,6 +83,7 @@
                                th:errorclass="is-invalid"
                                required type="number"
                                id="inputAge"
+                               name="age"
                                class="form-control"
                                min="0" max="90"
                                aria-describedby="ageHelpInline">
@@ -97,6 +102,7 @@
                                required minlength="5" maxlength="20"
                                type="password"
                                id="inputPassword"
+                               name="password"
                                class="form-control"
                                aria-describedby="passwordHelpInline">
                         <small id="passwordHelpInline"
@@ -116,6 +122,7 @@
                                required minlength="5" maxlength="20"
                                type="password"
                                id="inputConfirmPassword"
+                               name="confirmPassword"
                                class="form-control"
                                aria-describedby="confirmPasswordHelpInline">
                         <small id="confirmPasswordHelpInline"

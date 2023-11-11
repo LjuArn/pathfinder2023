@@ -25,7 +25,8 @@ public class SecurityConfiguration {
         http
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
-                        .requestMatchers("/", "/users/register", "/users/login").permitAll()
+                        .requestMatchers("/", "/users/register", "/users/login", "/users/login?error=true").permitAll()
+                        .requestMatchers("/about").permitAll()
                         //                 .requestMatchers("/pages/moderators").hasRole(RoleNameEnum.MODERATOR.name())
                         //                    .requestMatchers("/pages/admin").hasRole(RoleNameEnum.ADMIN.name())
                         .anyRequest().authenticated())
@@ -34,7 +35,7 @@ public class SecurityConfiguration {
                             .usernameParameter("username")
                             .passwordParameter("password")
                             .defaultSuccessUrl("/")
-                            .failureForwardUrl("/users/login-error");
+                            .failureForwardUrl("/users/login?error=true");
                 }).logout(logout -> {
                             logout.logoutUrl("/users/logout")
                                     .logoutSuccessUrl("/")

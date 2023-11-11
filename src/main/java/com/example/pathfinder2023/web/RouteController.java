@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -32,17 +33,24 @@ public class RouteController {
     }
 
 
+//    @GetMapping("/all")
+//    public String allRoutes(Model model) {
+//
+//        List<RouteViewModel> routeViewModels =
+//                routeService.findAllRoutesViewModel();
+//
+//        model.addAttribute("routes", routeViewModels);
+//
+//        return "routes";
+//    }
+
+
     @GetMapping("/all")
     public String allRoutes(Model model) {
 
-        List<RouteViewModel> routeViewModels =
-                routeService.findAllRoutesViewModel();
-
-        model.addAttribute("routes", routeViewModels);
-
+        model.addAttribute("routes", routeService.findAllRoutesViewModel());
         return "routes";
     }
-
 
     @GetMapping("/add")
     public String addRoute(Model model) {
@@ -68,24 +76,34 @@ public class RouteController {
         }
 
 
-        boolean isNameRouteExist = routeService.isNameRouteExistMethod(routeAddBindingModel.getName());
-
-        if (isNameRouteExist) {
-            redirectAttributes
-                    .addFlashAttribute("isNameRouteExist", true)
-                    .addFlashAttribute("routeAddBindingModelel", routeAddBindingModel)
-                    .addFlashAttribute("org.springframework.validation.BindingResult.routeAddBindingModel",
-                            bindingResult);
-            return "redirect:add";
-        }
+//        boolean isNameRouteExist = routeService.isNameRouteExistMethod(routeAddBindingModel.getName());
+//
+//        if (isNameRouteExist) {
+//            redirectAttributes
+//                    .addFlashAttribute("isNameRouteExist", true)
+//                    .addFlashAttribute("routeAddBindingModel", routeAddBindingModel)
+//                    .addFlashAttribute("org.springframework.validation.BindingResult.routeAddBindingModel",
+//                            bindingResult);
+//            return "redirect:add";
+//        }
 
 
         RouteAddServiceModel routeAddServiceModel = modelMapper.map(routeAddBindingModel, RouteAddServiceModel.class);
         routeAddServiceModel.setGpxCoordinates(new String(routeAddBindingModel.getGpxCoordinates().getBytes()));
 
-        // routeService.addNewRoute(routeAddServiceModel);
+         routeService.addNewRoute(routeAddServiceModel);
         return "redirect:all";
     }
 
 
+
+//    @GetMapping("/details/{id}")
+//    public String details(@PathVariable Long id, Model model) {
+//
+//
+//        model.addAttribute("route", routeService.findRouteById(id));
+//        model.addAttribute("authorName", routeService.findRouteById(id).getAuthor().getUsername());
+//
+//        return "route-details";
+//    }
 }

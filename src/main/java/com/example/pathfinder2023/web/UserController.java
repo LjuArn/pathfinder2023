@@ -54,78 +54,18 @@ public class UserController {
         }
 
 
-        boolean isNameExist = userService.isNameExistMethod(userRegisterBindingModel.getUsername());
-
-        if (isNameExist) {
-            redirectAttributes
-                    .addFlashAttribute("isNameExist", true)
-                    .addFlashAttribute("userRegisterBindingModel", userRegisterBindingModel)
-                    .addFlashAttribute("org.springframework.validation.BindingResult.userRegisterBidingModel",
-                            bindingResult);
-            return "redirect:register";
-            //todo   with message
-        }
-
         userService.registerUser(modelMapper.map(userRegisterBindingModel, UserServiceModel.class));
 
 
         return "redirect:login";
     }
 
-
 //___________________________________________________________
 
     @GetMapping("/login")
     public String loginUser(Model model) {
-        if (!model.containsAttribute("userLoginBindingModel")) {
-            model.addAttribute("userLoginBindingModel", new UserLoginBindingModel());
-        }
         return "login";
     }
-
-    @PostMapping("/login")
-    public String loginConfirmPost(@Valid UserLoginBindingModel userLoginBindingModel,
-                                   BindingResult bindingResult,
-                                   RedirectAttributes redirectAttributes) {
-
-        if (bindingResult.hasErrors()) {
-            redirectAttributes
-                    .addFlashAttribute("userLoginBindingModel", userLoginBindingModel)
-                    .addFlashAttribute("org.springframework.validation.BindingResult.userLoginBindingModel",
-                            bindingResult);
-            return "redirect:login";
-        }
-
-
-        UserServiceModel user = userService
-                .findUserByUsernameAndPassword(userLoginBindingModel.getUsername(),
-                        userLoginBindingModel.getPassword());
-
-
-        if (user == null) {
-            redirectAttributes
-                    .addFlashAttribute("isNotFound", true)
-                    .addFlashAttribute("userLoginBindingModel", userLoginBindingModel)
-                    .addFlashAttribute("org.springframework.validation.BindingResult.userLoginBindingModel",
-                            bindingResult);
-            return "redirect:login";
-        }
-
-  //     userService.loginUser(user.getId(), user.getUsername());
-
-        return "redirect:/";
-
-
-    }
-
-
-    //_______________________________
-
-    //   @GetMapping("/logout")
-    //   public String logOut() {
-    //      userService.logOut();
-    //       return "redirect:/";
-    //   }
 
 
     //_____________________________
