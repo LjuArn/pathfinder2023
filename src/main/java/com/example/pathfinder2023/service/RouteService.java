@@ -12,4 +12,6 @@ public interface RouteService {
 
 
     void addNewRoute(RouteAddServiceModel routeAddServiceModel);
+
+    RouteAddServiceModel findRouteById(Long id);
 }

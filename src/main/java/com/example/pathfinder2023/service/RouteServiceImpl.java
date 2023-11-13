@@ -87,6 +87,14 @@ public class RouteServiceImpl implements RouteService {
         routeRepository.save(route);
     }
 
+    @Override
+    public RouteAddServiceModel findRouteById(Long id) {
+        return routeRepository
+                .findById(id)
+                .map(routeEntity -> modelMapper.map(routeEntity,RouteAddServiceModel.class))
+                .orElse(null);
+    }
+
 
 }
 
