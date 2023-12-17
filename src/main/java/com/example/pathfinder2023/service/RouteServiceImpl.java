@@ -37,7 +37,7 @@ public class RouteServiceImpl implements RouteService {
                     RouteViewModel routeViewModel = modelMapper.map(routeEntity, RouteViewModel.class);
 
                     if (routeEntity.getPictures().isEmpty()) {
-                        routeViewModel.setPicture("/imiges/pic1.jpg");
+                        routeViewModel.setPicture("/images/pic1.jpg");
                     } else {
                         routeViewModel.setPicture(routeEntity.getPictures().stream().findFirst().get().getUrl());
                     }
